@@ -1,4 +1,4 @@
-https://shiro-shio.github.io/Roto/
+https://smallsun697.github.io/Roto/
 
 可自訂號碼與抽取數量
 
