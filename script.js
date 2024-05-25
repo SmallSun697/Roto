@@ -4,6 +4,26 @@ let lottoHistory = [];
 let maxNumbers;
 let numberRange;
 
+function setTheme(theme) {
+    localStorage.setItem('theme', theme);
+
+    document.getElementById('darkTheme').disabled = (theme !== 'dark');
+}
+
+window.addEventListener('load', () => {
+    let preferredTheme = localStorage.getItem('theme');
+    let darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    if (preferredTheme == null) {
+        preferredTheme = darkQuery.matches ? 'dark' : 'light';
+    }
+
+    darkQuery.addListener(function (e) {
+        setTheme(e.matches ? 'dark' : 'light');
+    });
+
+    setTheme(preferredTheme);
+})
+
 document.getElementById('drawButton').addEventListener('click', function() {
     maxNumbers = parseInt(document.getElementById('maxNumbers').value);
     numberRange = parseInt(document.getElementById('numberRange').value);
@@ -31,6 +51,16 @@ document.getElementById('clearHistory').addEventListener('click', function() {
     // 重置準備下一輪
     currentCount = 0;
 });
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+    let preferredTheme = localStorage.getItem('theme');
+    if (preferredTheme === 'dark') {
+        setTheme('light');
+    }
+    if (preferredTheme === 'light') {
+        setTheme('dark');
+    }
+})
 
 function generateLottoNumbers(maxNumbers, numberRange) {
     let numbers = [];

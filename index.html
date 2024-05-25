@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
+    <meta charset="UTF-8">
     <title>樂透抽球</title>
-    <link rel="stylesheet" type="text/css" href="style.css?ver=202403111450">
+    <link rel="stylesheet" href="styleLightTheme.css" id="lightTheme">
+    <link rel="stylesheet" href="styleDarkTheme.css" id="darkTheme" disabled>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <div class="top-bar">
@@ -23,16 +26,19 @@
             <a href="https://example.com/link1" target="_blank"></a>
             <a href="https://example.com/link2" target="_blank"></a>
         </div>
+        <button id="themeToggle">
+            <span id="theme-icon" class="material-icons">brightness_6</span>
+        </button>
     </div>
     <div class="container">
         <div class="lottery">
             <h1>樂透抽球</h1>
             <label for="maxNumbers">抽取數量:</label>
-            <input type="number" id="maxNumbers" value="6" min="1" max="10">
+            <input type="number" id="maxNumbers" value="6" min="1" max="10" inputmode="numeric" pattern="[0-9]*">
             <label for="maxMysteryNumbers">特別號數量:</label>
-            <input type="number" id="maxMysteryNumbers" value="0" min="0" max="5">
+            <input type="number" id="maxMysteryNumbers" value="0" min="0" max="5" inputmode="numeric" pattern="[0-9]*">
             <label for="numberRange">數字範圍:</label>
-            <input type="number" id="numberRange" value="49" min="10" max="99">
+            <input type="number" id="numberRange" value="49" min="10" max="99" inputmode="numeric" pattern="[0-9]*">
             <button id="drawButton">抽取數字</button>
             <button id="clearHistory">清除歷史</button>
             <div id="results"></div>
