@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
         preferredTheme = darkQuery.matches ? 'dark' : 'light';
     }
 
-    darkQuery.addListener(function (e) {
+    darkQuery.addEventListener('change', function (e) {
         setTheme(e.matches ? 'dark' : 'light');
     });
 
