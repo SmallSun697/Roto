@@ -60,6 +60,11 @@ document.getElementById('themeToggle').addEventListener('click', () => {
     if (preferredTheme === 'light') {
         setTheme('dark');
     }
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = `${window.location.href}?t=${new Date().getTime()}`;
+    document.body.appendChild(iframe);
+    console.log("Page has loaded.");
 })
 
 function generateLottoNumbers(maxNumbers, numberRange) {
